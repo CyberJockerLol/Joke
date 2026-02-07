@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reinicio</title>
+  <style>
+    body {
+      background: black;
+      color: white;
+      font-family: monospace;
+      text-align: center;
+      padding-top: 200px;
+    }
+    h1 {
+      font-size: 50px;
+      animation: cargando 1s infinite;
+    }
+    @keyframes cargando {
+      0% { color: white; }
+      50% { color: gray; }
+      100% { color: white; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Reiniciando...</h1>
+
+  <script>
+    // Después de 5 segundos, vuelve a la normalidad (index)
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 5000);
+  </script>
+</body>
+</html>

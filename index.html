@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bitcoin Studios</title>
+  <!-- Fuente gamer desde Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(270deg, #1a1a1a, #3a3a3a, #2e2e2e);
+      background-size: 600% 600%;
+      animation: fondo 15s ease infinite;
+      color: #ccc;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    @keyframes fondo {
+      0% {background-position:0% 50%}
+      50% {background-position:100% 50%}
+      100% {background-position:0% 50%}
+    }
+    header {
+      width: 100%;
+      background: rgba(0,0,0,0.8);
+      padding: 4vh 2vw;
+      text-align: center;
+      font-size: 6vw; /* proporcional al ancho */
+      font-weight: bold;
+      color: #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+    section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5vh;
+      width: 100%;
+    }
+    .opcion {
+      display: block;
+      background: #111;
+      color: #ccc;
+      padding: 3vh 8vw;
+      border: 2px solid #00ffff;
+      border-radius: 12px;
+      font-size: 5vw; /* texto proporcional */
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #00ffff;
+      opacity: 0;
+      animation: aparecer 1s forwards;
+    }
+    .opcion:hover {
+      background: #00ffff;
+      color: #111;
+      box-shadow: 0 0 20px #00ffff;
+    }
+    @keyframes aparecer {
+      to {opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Bitcoin Studios
+  </header>
+
+  <section>
+    <a href="bio.html" class="opcion">¿Qué es Bitcoin Studios?</a>
+    <a href="descarga.html" class="opcion">1 000 000 DE DÓLARES GRATIS!</a>
+  </section>
+</body>
+</html>

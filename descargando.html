@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descargando...</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: #ccc;
+      text-align: center;
+      padding-top: 10vh;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      font-size: 6vw; /* proporcional al ancho */
+      margin-bottom: 5vh;
+      z-index: 5;
+    }
+    .barra {
+      width: 80%;
+      height: 5vh;
+      background: #333;
+      margin: auto;
+      border-radius: 8px;
+      overflow: hidden;
+      z-index: 5;
+    }
+    .progreso {
+      height: 100%;
+      width: 0%;
+      background: blue;
+      animation: cargar 15s linear forwards;
+    }
+    @keyframes cargar {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+    .bonzi {
+      margin-top: 5vh;
+      width: 40vw; /* proporcional */
+      z-index: 5;
+    }
+    .zz {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 20vw;
+      opacity: 0.95;
+      z-index: 20;
+      animation: crecer 1s ease-out forwards;
+    }
+    @keyframes crecer {
+      0% { transform: translate(0,0) scale(0.2); opacity: 0; }
+      100% { transform: translate(20vw,15vh) scale(5); opacity: 1; }
+    }
+    /* Parpadeo de pantalla */
+    .flash {
+      animation: parpadeo 0.15s infinite;
+    }
+    @keyframes parpadeo {
+      0% { background: #1a1a1a; }
+      50% { background: #ff0000; } /* rojo brillante */
+      100% { background: #1a1a1a; }
+    }
+  </style>
+</head>
+<body>
+  <h1>DESCARGANDO BONZIBUDDY...</h1>
+  <div class="barra">
+    <div class="progreso"></div>
+  </div>
+  <img src="C:\Users\User\index\bonzybuddy.gif.gif" alt="BonziBuddy" class="bonzi">
+  <img src="C:\Users\User\index\zz.webp" alt="ZZ" class="zz">
+
+  <audio id="alerta">
+    <source src="C:\Users\User\index\Sonido De My Horror (Versión De Samsung).MP3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // En móvil, el audio se activa al primer toque
+    document.body.addEventListener("click", () => {
+      const audio = document.getElementById("alerta");
+      audio.volume = 1.0;
+      audio.play();
+    }, { once: true });
+
+    // Al segundo 5 empieza el parpadeo y vibra el celular
+    setTimeout(() => {
+      document.body.classList.add("flash");
+      if (navigator.vibrate) {
+        // Patrón de vibración sincronizado con el flash
+        navigator.vibrate([200, 100, 200, 100, 400]);
+      }
+    }, 5000);
+
+    // Después de 15 segundos, redirige a otra página
+    setTimeout(() => {
+      window.location.href = "final.html";
+    }, 15000);
+  </script>
+</body>
+</html>

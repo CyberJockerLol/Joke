@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Final</title>
+  <style>
+    body {
+      background: black;
+      color: red;
+      font-family: 'Courier New', monospace;
+      text-align: center;
+      padding-top: 200px;
+    }
+    h1 {
+      font-size: 40px;
+      animation: parpadeo 0.5s infinite;
+    }
+    @keyframes parpadeo {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>RIP: Caiste,<br>DECILE ADIOS A TU CELULAR</h1>
+
+  <!-- Música de fondo -->
+  <audio id="musica" loop>
+    <source src="C:\Users\User\index\Muerte en Hospital - Paro cardíaco - Sonido Ambiental [1].MP3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    // En PC puede sonar al cargar, en móvil se activa al primer toque
+    function playMusic() {
+      const audio = document.getElementById("musica");
+      audio.volume = 0.7; // volumen al 70%
+      audio.play().catch(() => {
+        document.body.addEventListener("click", () => audio.play(), { once: true });
+      });
+    }
+    window.onload = playMusic;
+
+    // Después de 5 segundos, simula "reinicio"
+    setTimeout(() => {
+      window.location.href = "reiniciando.html";
+    }, 5000);
+  </script>
+</body>
+</html>
